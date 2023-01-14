@@ -1,6 +1,8 @@
 package evolution;
+
 import evolution.gui.App;
 import javafx.application.Application;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -8,8 +10,7 @@ public class Main {
 
             Application.launch(App.class, args);
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.toString());
         }
 

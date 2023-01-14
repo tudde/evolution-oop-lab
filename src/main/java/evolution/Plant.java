@@ -1,13 +1,12 @@
 package evolution;
 
-public class Plant implements IMapElement{
+public class Plant implements IMapElement {
 
     private Vector2d position;
 
-    public Plant(Vector2d position){
-        this.position=position;
+    public Plant(Vector2d position) {
+        this.position = position;
     }
-
 
 
     @Override

@@ -1,4 +1,4 @@
 package evolution;
 
-public class CSVReader {
+public class CSVReader { // chyba mało przydatna ta klasa
 }

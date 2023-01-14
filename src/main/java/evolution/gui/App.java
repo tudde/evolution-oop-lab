@@ -14,17 +14,13 @@ import java.util.ArrayList;
 public class App extends Application {
 
 
-
     private ArrayList<SimulationInstance> simulations = new ArrayList<>();
     private AbstractWorldMap map;
     private Scene scene;
     private VBox container = new VBox();
 
 
-
-
-
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
 
 
         primaryStage.show();
@@ -36,38 +32,37 @@ public class App extends Application {
         //add all simulation options
 
         TextField mapHeight = new TextField();
-        addTextInput(new Label("Map height"),mapHeight);
+        addTextInput(new Label("Map height"), mapHeight);
 
         TextField mapWidth = new TextField();
-        addTextInput(new Label("Map width"),mapWidth);
+        addTextInput(new Label("Map width"), mapWidth);
 
         TextField startPlants = new TextField();
-        addTextInput(new Label("Start plants"),startPlants);
+        addTextInput(new Label("Start plants"), startPlants);
 
         TextField plantEnergy = new TextField();
-        addTextInput(new Label("Energy per plant eaten"),plantEnergy);
+        addTextInput(new Label("Energy per plant eaten"), plantEnergy);
 
         TextField plantGrowth = new TextField();
-        addTextInput(new Label("Plant growth per day"),plantGrowth);
+        addTextInput(new Label("Plant growth per day"), plantGrowth);
 
         TextField startAnimals = new TextField();
-        addTextInput(new Label("Start animals"),startAnimals);
+        addTextInput(new Label("Start animals"), startAnimals);
 
         TextField saturationEnergy = new TextField();
-        addTextInput(new Label("Minimum energy to breed"),saturationEnergy);
+        addTextInput(new Label("Minimum energy to breed"), saturationEnergy);
 
         TextField breedEnergy = new TextField();
-        addTextInput(new Label("Energy used by breeding"),breedEnergy);
+        addTextInput(new Label("Energy used by breeding"), breedEnergy);
 
         TextField minMutations = new TextField();
-        addTextInput(new Label("Minimum number of mutations in child animal's genome"),minMutations);
+        addTextInput(new Label("Minimum number of mutations in child animal's genome"), minMutations);
 
         TextField maxMutations = new TextField();
-        addTextInput(new Label("Maximum number of mutations in child animal's genome"),maxMutations);
+        addTextInput(new Label("Maximum number of mutations in child animal's genome"), maxMutations);
 
         TextField genomeLength = new TextField();
-        addTextInput(new Label("Length of an animal's genome"),genomeLength);
-
+        addTextInput(new Label("Length of an animal's genome"), genomeLength);
 
 
         //map type
@@ -119,12 +114,8 @@ public class App extends Application {
         container.getChildren().add(partRandom);
 
 
-
-
-
         Button button = new Button("Start simulation");
         container.getChildren().add(button);
-
 
 
         button.setOnAction((event) -> {
@@ -146,30 +137,24 @@ public class App extends Application {
                         random.isSelected() ? 0 : 1,
                         sequential.isSelected() ? 0 : 1);
                 startNewSimulation(params);
-            }
-            catch (Exception NumberFormatException){
+            } catch (Exception NumberFormatException) {
                 System.out.println("Wrong input format");
             }
 
         });
 
 
-
-
-
-
     }
 
-    private void startNewSimulation(evolution.Parameters params){
-        SimulationInstance newSimulation=new SimulationInstance(params);
+    private void startNewSimulation(evolution.Parameters params) {
+        SimulationInstance newSimulation = new SimulationInstance(params);
         simulations.add(newSimulation);
     }
 
-    private void addTextInput(Label label, TextField textField){
+    private void addTextInput(Label label, TextField textField) {
         container.getChildren().add(label);
         container.getChildren().add(textField);
     }
-
 
 
 }

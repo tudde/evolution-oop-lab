@@ -3,7 +3,7 @@ package evolution;
 import java.util.Random;
 
 public enum MapDirection {
-    NORTH(0),
+    NORTH(0), // Enum.ordinal
     NORTH_EAST(1),
     EAST(2),
     SOUTH_EAST(3),
@@ -15,22 +15,22 @@ public enum MapDirection {
     final static Random rand = new Random();
     private final int intValue;
 
-   MapDirection(int val){
-        this.intValue=val;
+    MapDirection(int val) {
+        this.intValue = val;
     }
 
-    public int toInt(){
+    public int toInt() {
         return this.intValue;
     }
 
 
-    public MapDirection rotate(int rotation){
-       return values()[((this.intValue+rotation)%values().length)];
+    public MapDirection rotate(int rotation) {
+        return values()[((this.intValue + rotation) % values().length)];
     }
 
-    public Vector2d toUnitVector(){
+    public Vector2d toUnitVector() {
         return switch (this) {
-            case NORTH -> new Vector2d(0, 1);
+            case NORTH -> new Vector2d(0, 1); // nowy obiekt co wywołanie
             case NORTH_EAST -> new Vector2d(1, 1);
             case EAST -> new Vector2d(1, 0);
             case SOUTH_EAST -> new Vector2d(1, -1);
@@ -38,15 +38,13 @@ public enum MapDirection {
             case SOUTH_WEST -> new Vector2d(-1, -1);
             case WEST -> new Vector2d(-1, 0);
             case NORTH_WEST -> new Vector2d(-1, 1);
-            default -> null;
+            default -> null; // wyjątek byłby lepszy
         };
 
     }
 
 
-
-
-    public static MapDirection RandomDirection(){
+    public static MapDirection RandomDirection() {
         return values()[rand.nextInt(values().length)];
     }
 }

@@ -16,11 +16,10 @@ public class GuiElementBox {
     private VBox vbox = new VBox(4);
 
 
-
     public GuiElementBox(AbstractWorldMap map, Vector2d pos, int tileSize) {
 
         StackPane cell = new StackPane();
-        cell.setAlignment(Pos. CENTER);
+        cell.setAlignment(Pos.CENTER);
         Rectangle bg = new Rectangle();
         if (map.isBiased(pos)) {
             bg.setWidth(tileSize);
@@ -30,7 +29,7 @@ public class GuiElementBox {
         cell.getChildren().add(bg);
         IMapElement el = (IMapElement) map.objectAt(pos);
         if (el != null) {
-            if (el instanceof Animal && ((Animal) el).getEnergy()>0) {
+            if (el instanceof Animal && ((Animal) el).getEnergy() > 0) {
 
                 Color animalColor;
                 animalColor = new Color(0, 0, 0, 1.0);
@@ -42,14 +41,14 @@ public class GuiElementBox {
                 Circle circle = new Circle();
                 circle.setCenterX(100.0f);
                 circle.setCenterY(100.0f);
-                circle.setRadius(tileSize/4);
+                circle.setRadius(tileSize / 4);
                 circle.setFill(animalColor);
                 cell.getChildren().add(circle);
             } else if (el instanceof Plant) {
                 Circle circle = new Circle();
                 circle.setCenterX(100.0f);
                 circle.setCenterY(100.0f);
-                circle.setRadius(tileSize/8);
+                circle.setRadius(tileSize / 8);
                 circle.setFill(Color.rgb(0, 100, 20, 0.5));
                 cell.getChildren().add(circle);
 
@@ -61,7 +60,7 @@ public class GuiElementBox {
         vbox.setAlignment(Pos.CENTER);
     }
 
-    public VBox getVBox(){
+    public VBox getVBox() {
         return vbox;
     }
 }
